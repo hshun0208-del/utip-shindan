@@ -8,3 +8,5 @@
 - `ogp.jpg` … SNS・LINEで共有したときのプレビュー画像
 
 公開URL: https://utip-shindan.vercel.app/ （Vercel・mainへのpushで自動デプロイ）
+
+2026/10 公開
