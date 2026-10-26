@@ -7,4 +7,4 @@
 - `img/` … キャラクター画像
 - `ogp.jpg` … SNS・LINEで共有したときのプレビュー画像
 
-公開後、`index.html` の `__SITE_URL__` を公開URL（末尾に `/`）に置き換える。
+公開URL: https://utip-shindan.vercel.app/ （Vercel・mainへのpushで自動デプロイ）
