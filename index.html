@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>配信どうぶつ診断｜星見アクア</title>
+<meta name="description" content="12の質問で、あなたに合う配信スタイルを16タイプの動物で診断。顔出しなし・未経験からでもOK。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="配信どうぶつ診断｜あなたは16タイプのどの動物？">
+<meta property="og:description" content="12の質問・約1分で、あなたに合う配信スタイルがわかるよ。">
+<meta property="og:url" content="__SITE_URL__">
+<meta property="og:image" content="__SITE_URL__ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXSFH4MFBP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TXSFH4MFBP');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow phone-first column under a starry sky; three views (intro / quiz / result) swap in place. */
+:root{
+  --sky:#eaf5ff; --sky2:#d7ebff; --card:#ffffff; --ink:#22406f; --sub:#61759a;
+  --aqua:#3f9fe4; --aqua-soft:#e2f2ff; --pink:#ff6fa3; --pink-soft:#ffe8f1;
+  --line:#d9e7f6; --star:#ffd75e; --shadow:rgba(40,85,150,.14);
+  --f-display:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Noto Sans JP",sans-serif;
+  --f-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --sky:#0f1a33; --sky2:#172747; --card:#1b2b4c; --ink:#eaf2ff; --sub:#a9bbd9;
+  --aqua:#6cbcf5; --aqua-soft:#203a63; --pink:#ff8db6; --pink-soft:#3a2645;
+  --line:#2c4068; --star:#ffd75e; --shadow:rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --sky:#0f1a33; --sky2:#172747; --card:#1b2b4c; --ink:#eaf2ff; --sub:#a9bbd9;
+  --aqua:#6cbcf5; --aqua-soft:#203a63; --pink:#ff8db6; --pink-soft:#3a2645;
+  --line:#2c4068; --star:#ffd75e; --shadow:rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+img{max-width:100%}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+body{margin:0;background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%) fixed;color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.75;min-height:100%}
+.wrap{max-width:560px;margin:0 auto;padding-block:28px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;text-wrap:balance;margin:0;line-height:1.3}
+p{margin:0}
+.eyebrow{font-family:var(--f-display);font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--aqua)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.btn{border:0;border-radius:999px;padding:16px 28px;font-family:var(--f-display);font-weight:800;font-size:18px;
+  background:var(--pink);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--pink) 35%,transparent);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:var(--card);color:var(--ink);box-shadow:0 6px 16px var(--shadow)}
+.btn.aqua{background:var(--aqua);box-shadow:0 8px 20px color-mix(in srgb,var(--aqua) 35%,transparent)}
+
+/* intro */
+.hero{position:relative;background:var(--card);border-radius:32px;padding:26px 22px 24px;box-shadow:0 14px 34px var(--shadow);overflow:hidden;
+  display:grid;grid-template-columns:1fr 150px;gap:6px;align-items:end}
+.hero .txt{display:flex;flex-direction:column;gap:12px;min-width:0;position:relative;z-index:1}
+.hero h1{font-size:clamp(30px,8vw,40px)}
+.hero h1 span{color:var(--pink)}
+.hero .meta{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--aqua-soft);color:var(--aqua)}
+.chip.p{background:var(--pink-soft);color:var(--pink)}
+.hero img{width:150px;border-radius:24px;align-self:end}
+.hero .btn{justify-self:start;margin-top:6px}
+.axes{background:var(--card);border-radius:28px;padding:20px 22px;box-shadow:0 10px 26px var(--shadow);display:flex;flex-direction:column;gap:12px}
+.axes h2{font-size:18px}
+.axis{display:grid;grid-template-columns:5.5em 1fr;gap:10px;align-items:center;font-size:14px}
+.axis b{font-family:var(--f-display);color:var(--sub);font-size:13px}
+.axis .pair{display:flex;gap:6px;flex-wrap:wrap}
+.grid16{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tcard{background:var(--card);border:0;border-radius:18px;padding:6px 6px 8px;text-align:center;box-shadow:0 6px 16px var(--shadow);
+  display:flex;flex-direction:column;gap:4px;transition:transform .15s}
+.tcard:hover{transform:translateY(-3px)}
+.tcard img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:13px;display:block}
+.tcard .n{font-size:10px;font-weight:800;color:var(--sub);letter-spacing:.1em;font-family:var(--f-display)}
+.tcard .nm{font-size:11px;font-weight:700;line-height:1.35;min-height:2.7em}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sec-h h2{font-size:20px}
+.sec-h small{color:var(--sub);font-size:13px}
+@media (max-width:420px){.grid16{gap:8px} .tcard .nm{font-size:10px} .hero{grid-template-columns:1fr 112px} .hero img{width:112px}}
+
+/* quiz */
+.qtop{display:flex;align-items:center;gap:12px}
+.back{border:0;background:var(--card);border-radius:999px;width:42px;height:42px;box-shadow:0 4px 12px var(--shadow);font-size:20px;line-height:1;flex:none}
+.back:disabled{opacity:.35;cursor:default}
+.bar{flex:1;height:12px;border-radius:99px;background:var(--card);overflow:hidden;box-shadow:inset 0 1px 3px var(--shadow)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--aqua),var(--pink));border-radius:99px;transition:width .3s}
+.qnum{font-family:var(--f-display);font-weight:800;font-size:14px;color:var(--sub);font-variant-numeric:tabular-nums;flex:none}
+.qcard{background:var(--card);border-radius:30px;padding:26px 22px;box-shadow:0 14px 34px var(--shadow);display:flex;flex-direction:column;gap:18px}
+.qhead{display:flex;gap:14px;align-items:center}
+.qhead img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 20%;flex:none;border:3px solid var(--aqua-soft)}
+.qhead h2{font-size:22px}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{border:2px solid var(--line);background:var(--card);border-radius:22px;padding:16px 18px;text-align:left;font-size:17px;font-weight:700;
+  display:flex;gap:12px;align-items:center;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--aqua);background:var(--aqua-soft)}
+.opt .k{flex:none;width:32px;height:32px;border-radius:50%;background:var(--aqua-soft);color:var(--aqua);font-family:var(--f-display);font-weight:800;
+  display:flex;align-items:center;justify-content:center;font-size:15px}
+.opt.sel{border-color:var(--pink);background:var(--pink-soft)} .opt.sel .k{background:var(--pink);color:#fff}
+
+/* result */
+.rcard{background:var(--card);border-radius:32px;overflow:hidden;box-shadow:0 16px 38px var(--shadow)}
+.rcard .art{position:relative}
+.rcard .art img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.rcard .badge{position:absolute;left:16px;top:16px;background:var(--card);color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:13px;
+  padding:6px 14px;border-radius:999px;letter-spacing:.1em;box-shadow:0 4px 12px var(--shadow)}
+.rbody{padding:22px 22px 26px;display:flex;flex-direction:column;gap:16px}
+.you{font-family:var(--f-display);font-weight:800;color:var(--pink);font-size:15px}
+.rbody h1{font-size:clamp(30px,8vw,38px)}
+.catch{font-size:17px;font-weight:700}
+.meters{display:grid;gap:10px}
+.m{display:grid;grid-template-columns:4.6em 1fr 4.6em;gap:8px;align-items:center;font-size:13px;font-weight:700}
+.m span:first-child{text-align:right}
+.m .track{height:10px;border-radius:99px;background:var(--aqua-soft);position:relative;overflow:hidden}
+.m .track i{position:absolute;top:0;bottom:0;border-radius:99px;background:var(--aqua)}
+.m .on{color:var(--ink)} .m .off{color:var(--sub);opacity:.7}
+.block{background:var(--sky);border-radius:22px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.block h3{font-size:15px;color:var(--aqua)}
+.block ul{margin:0;padding-left:1.2em}
+.partner{display:flex;gap:14px;align-items:center;border:0;background:var(--sky);border-radius:22px;padding:12px;text-align:left;width:100%}
+.partner img{width:72px;height:72px;border-radius:16px;object-fit:cover;flex:none}
+.partner small{display:block;color:var(--sub);font-size:12px}
+.partner b{font-family:var(--f-display);font-size:17px}
+.cta{background:var(--card);border-radius:30px;padding:22px;box-shadow:0 14px 34px var(--shadow);display:flex;flex-direction:column;gap:14px;
+  border:3px solid var(--pink)}
+.cta h2{font-size:21px}
+.cta .copybox{background:var(--sky);border-radius:16px;padding:12px 14px;font-size:14px;user-select:all;word-break:break-all}
+.cta .row{display:flex;gap:10px;flex-wrap:wrap}
+.cta .row .btn{flex:1 1 200px;font-size:16px;padding:14px 18px;text-align:center;text-decoration:none}
+.note{font-size:13px;color:var(--sub)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.actions .btn{flex:1 1 150px;font-size:15px;padding:14px 16px}
+.foot{text-align:center;font-size:12px;color:var(--sub)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap" id="app">
+  <!-- intro -->
+  <section id="v-intro" style="display:contents">
+    <div class="hero">
+      <div class="txt">
+        <span class="eyebrow">星見アクアの</span>
+        <h1>配信<span>どうぶつ</span><br>診断</h1>
+        <p>12の質問で、あなたに合う配信スタイルを16タイプの動物で診断するよ。</p>
+        <div class="meta"><span class="chip">全12問</span><span class="chip">約1分</span><span class="chip p">配信未経験でもOK</span></div>
+        <button class="btn" id="start">診断をはじめる</button>
+      </div>
+      <img src="img/aqua.jpg" alt="案内役の星見アクア">
+    </div>
+    <div class="axes">
+      <h2>4つの軸でタイプが決まるよ</h2>
+      <div class="axis"><b>届け方</b><span class="pair"><span class="chip">声で届ける</span><span class="chip">姿も見せる</span></span></div>
+      <div class="axis"><b>話し方</b><span class="pair"><span class="chip">話し手</span><span class="chip">聞き手</span></span></div>
+      <div class="axis"><b>ペース</b><span class="pair"><span class="chip">コツコツ</span><span class="chip">イベント</span></span></div>
+      <div class="axis"><b>原動力</b><span class="pair"><span class="chip">つながり</span><span class="chip p">表現</span></span></div>
+    </div>
+    <div class="sec-h"><h2>全16タイプ</h2><small>タップで中身が見られるよ</small></div>
+    <div class="grid16" id="grid"></div>
+    <p class="foot">配信どうぶつ診断｜Palmu専属ライバー事務所 Utip</p>
+  </section>
+
+  <!-- quiz -->
+  <section id="v-quiz" hidden style="display:contents">
+    <div class="qtop">
+      <button class="back" id="back" aria-label="ひとつ前の質問にもどる">‹</button>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+      <span class="qnum" id="qnum">1 / 12</span>
+    </div>
+    <div class="qcard">
+      <div class="qhead"><img src="img/aqua_smile.jpg" alt=""><h2 id="qtext"></h2></div>
+      <div class="opts" id="opts"></div>
+    </div>
+  </section>
+
+  <!-- result -->
+  <section id="v-result" hidden style="display:contents">
+    <div class="rcard">
+      <div class="art"><img id="r-img" alt=""><span class="badge" id="r-no"></span></div>
+      <div class="rbody">
+        <span class="you" id="r-you">あなたは…</span>
+        <h1 id="r-name"></h1>
+        <p class="catch" id="r-catch"></p>
+        <div class="meters" id="r-meters"></div>
+        <p id="r-desc"></p>
+        <div class="block"><h3>おすすめの配信スタイル</h3><ul id="r-styles"></ul></div>
+        <div class="block"><h3>最初の30日の作戦</h3><p id="r-plan"></p></div>
+        <div class="block"><h3>コラボすると相性ばつぐん</h3>
+          <button class="partner" id="r-partner"><img id="r-pimg" alt=""><span><small id="r-pno"></small><b id="r-pname"></b><small>話し手と聞き手で、おたがいの得意を活かせるよ</small></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="cta" id="cta">
+      <h2>結果をLINEで送ってね</h2>
+      <p>あなたのタイプに合った始め方を、アクアが一緒に考えるよ。下の文をコピーしてから「公式LINEをひらく」を押して、トークに貼りつけて送ってね。</p>
+      <div class="copybox" id="r-copy"></div>
+      <div class="row">
+        <button class="btn" id="copy">結果をコピー</button>
+        <a class="btn aqua" id="line" href="#" target="_blank" rel="noopener" hidden>公式LINEをひらく</a>
+      </div>
+      <p class="note" id="copy-msg" aria-live="polite">ボタンがひらかないときは、プロフィールのリンクから公式LINEを追加してね。</p>
+    </div>
+    <p class="note" style="text-align:center">スクショしてストーリーズにのせてね ＃配信どうぶつ診断</p>
+    <div class="actions">
+      <button class="btn ghost" id="again">もう一度診断する</button>
+      <button class="btn ghost" id="all">全タイプを見る</button>
+    </div>
+  </section>
+</div>
+
+<script>
+// 公式LINEの友だち追加URLが決まったらここに入れる（空ならボタンは出さない）
+const LINE_URL = 'https://liff.line.me/2006525319-5EqD4V9D/landing?follow=%40530nmysb&lp=I5f293&liff_id=2006525319-5EqD4V9D';
+
+const Q = [ // axis: 0=届け方(bit8) 1=話し方(bit4) 2=ペース(bit2) 3=原動力(bit1)。B を選ぶとその軸のビットが立つ
+  {a:0,t:'配信するなら、どっちがいい？',A:'声だけで、ゆったり話したい',B:'顔や手元も見せたい'},
+  {a:1,t:'友だちと話すとき、多いのは？',A:'自分が話していることが多い',B:'聞いていることが多い'},
+  {a:2,t:'夏休みの宿題、どうしてた？',A:'毎日少しずつ進めた',B:'最後に一気に片づけた'},
+  {a:3,t:'配信を始めるとしたら、理由は？',A:'新しい居場所や仲間がほしい',B:'自分の「好き」や得意を見せたい'},
+  {a:0,t:'リスナーさんに覚えてほしいのは？',A:'声や話し方',B:'見た目や雰囲気'},
+  {a:1,t:'会話がとぎれたら？',A:'自分から話題をふる',B:'相手が話すのを待つ'},
+  {a:2,t:'目標があるときのあなたは？',A:'毎日のルーティンにする',B:'しめきりに向けて燃える'},
+  {a:3,t:'言われてうれしいのは？',A:'「いつもいてくれてありがとう」',B:'「すごい！もっと見たい」'},
+  {a:0,t:'写真を撮るときは？',A:'撮る側のほうが好き',B:'撮られるのも好き'},
+  {a:1,t:'うれしいのはどっち？',A:'自分の話で笑ってもらえた',B:'相談にのって「ありがとう」と言われた'},
+  {a:2,t:'好きなゲームの遊び方は？',A:'毎日ログインして、コツコツ育てる',B:'イベントでランキングを狙う'},
+  {a:3,t:'休みの日の過ごし方は？',A:'友だちとわいわい',B:'好きなことに没頭する'}
+];
+const AX=[['声で届ける','姿も見せる'],['話し手','聞き手'],['コツコツ','イベント'],['つながり','表現']];
+const AXS=[['声','姿'],['話し手','聞き手'],['コツコツ','イベント'],['つながり','表現']];
+const T={
+1:{n:'おしゃべりネコ',c:'毎日のおしゃべりでファンを増やす、ラジオ配信の王道。',d:'話すのが好きで、顔を出さなくても声と話し方で人を惹きつけられるタイプ。毎日少しずつ配信して、「この時間に行けば会える」ライバーになれるよ。',s:['雑談ラジオ配信','今日あったことトーク','リスナーさんへの質問コーナー'],p:'毎日同じ時間に30分〜1時間。まずは毎日+1を積み上げて、7日で12ポイントのキープを目指そう。'},
+2:{n:'ものがたりインコ',c:'ことばの力で魅せる、トークテーマの名人。',d:'テーマを決めて話したり、朗読したり、自分の世界観をことばで表現するのが得意。続けるほど「この人の話が聞きたい」というファンが増えるよ。',s:['テーマトーク配信','朗読・読み聞かせ','好きな作品の語り'],p:'曜日ごとにテーマを決めると続けやすい。タイトルにテーマを入れて、初見さんが入りやすくしよう。'},
+3:{n:'にぎやかペンギン',c:'声だけで枠をまとめる、イベントのリーダー。',d:'話し上手で、みんなを巻き込んで盛り上げるのが得意。目標があると燃えるタイプだから、イベント期間にリスナーさんと一丸になれるよ。',s:['目標発表つきの雑談配信','リスナー参加型の企画','イベント中の作戦会議枠'],p:'最初の30日でリスナーさんとの関係を作って、事務所イベントで+4・+6を狙っていこう。'},
+4:{n:'歌声カナリア',c:'歌や声で、ここぞのイベントに輝く。',d:'歌や声で表現するのが好きで、ステージがあるほど力を出せるタイプ。イベントの目標に向かって、歌でリスナーさんの心をつかめるよ。',s:['歌枠（ラジオ配信）','リクエスト歌枠','歌と雑談の組み合わせ'],p:'ふだんは短い歌枠で毎日+1を確保。イベント期間は歌枠を増やして、ライブスコアを伸ばそう。'},
+5:{n:'夜ふかしフクロウ',c:'夜の同じ時間にいつもいる、みんなの居場所。',d:'聞き上手で、コメントを拾ってリスナーさんの話を広げるのが得意。毎日同じ時間に配信すると、常連さんが集まる居場所になるよ。',s:['夜のまったり雑談','コメント読み中心の配信','お悩み相談枠'],p:'毎晩同じ時間に配信して、来てくれた人の名前を呼ぼう。常連さんが増えると、ライブスコアも安定するよ。'},
+6:{n:'もくもくウサギ',c:'作業しながら、好きなことを静かに積み重ねる。',d:'自分のペースで好きなことに没頭するのが得意。作業や勉強の配信は、リスナーさんも「一緒にがんばろう」と気軽に来やすいよ。',s:['作業・勉強配信（ラジオ）','お絵かきや手芸の声だけ配信','休憩中のコメント返し'],p:'作業の時間をそのまま配信に。1日1時間でも毎日続ければ、ランクのポイントがしっかりたまるよ。'},
+7:{n:'手つなぎラッコ',c:'みんなの声を拾って、チームで目標を達成する。',d:'リスナーさん一人ひとりの声を大事にできるタイプ。イベントでは「みんなで達成しよう」という空気を作って、枠全体をひとつにできるよ。',s:['リスナーさんと目標を決める配信','コメント参加型の企画','イベントのふりかえり枠'],p:'最初の30日でリスナーさんの名前と好きなものを覚えよう。イベントのとき、みんなが力を貸してくれるよ。'},
+8:{n:'リクエストクジラ',c:'リクエストに歌で応える、深くて優しい声。',d:'リスナーさんの「聞きたい」に応えるのが好きな表現者。リクエストに応えるほど、リスナーさんとの絆が深くなるよ。',s:['リクエスト歌枠','弾き語り・アカペラ配信','リスナーさんのおすすめ曲を歌う枠'],p:'リクエストに応えた曲を少しずつ増やして、イベントでは特別なセットリストで勝負しよう。'},
+9:{n:'にこにこハムスター',c:'毎日の笑顔で元気を届ける、癒やしの存在。',d:'顔や表情で気持ちが伝わるタイプ。毎日の短い配信で、リスナーさんに「今日も会えてうれしい」と思ってもらえるよ。',s:['朝や夜の短いあいさつ配信','今日あったこと雑談','リアクション企画'],p:'毎日少しでも顔を見せて+1を確保。笑顔が伝わるタイトルとアイコンで、初見さんを呼ぼう。'},
+10:{n:'おしゃれキツネ',c:'メイクやファッション、「好き」を毎日発信する。',d:'自分のセンスや好きなものを見せるのが得意なタイプ。毎日の発信で「この人のおすすめが見たい」というファンが増えるよ。',s:['メイク・ヘアアレンジ配信','購入品紹介','コーデ相談枠'],p:'曜日ごとに企画を決めて続けよう。SNSで配信の予告をすると、ファンが集まりやすいよ。'},
+11:{n:'お祭りワンコ',c:'みんなを巻き込んで盛り上げるムードメーカー。',d:'明るさと行動力で、枠をお祭りのように盛り上げるタイプ。イベントでは先頭に立って、リスナーさんと一緒にランクアップを目指せるよ。',s:['ゲーム・企画系のビデオ配信','イベント前の決起集会枠','リスナー参加型ゲーム'],p:'デビュー30日の応援されやすい時期に、仲間になってくれるリスナーさんを集めよう。事務所イベントにはどんどん参加して！'},
+12:{n:'ステージクジャク',c:'歌って踊って、イベントのステージで主役になる。',d:'見せることが大好きなパフォーマータイプ。イベントやランキングで力を発揮して、大きな舞台を目指せるよ。',s:['歌・ダンスのビデオ配信','イベント限定のパフォーマンス枠','衣装や演出にこだわる配信'],p:'ふだんの配信で毎日+1を確保して、イベントにパフォーマンスを集中させよう。'},
+13:{n:'ほっこりパンダ',c:'見ているだけで和む、まったり相談の枠。',d:'おだやかな雰囲気で、リスナーさんが安心して話せるタイプ。毎日の配信が、みんなのくつろげる場所になるよ。',s:['まったり雑談のビデオ配信','お悩み相談枠','お茶やおやつを楽しむ配信'],p:'毎日同じ時間に、ゆったり配信しよう。初見さんに「ゆっくりしていってね」と声をかけると、常連さんになってくれるよ。'},
+14:{n:'てしごとリス',c:'お絵かきや料理など、手元を見せて魅せる。',d:'手を動かして何かを作るのが好きな表現者。顔を出さずに手元だけ映す配信もできるから、身バレが心配な人にも向いているよ。',s:['お絵かき・イラスト配信','料理・お菓子作り配信','ハンドメイド配信'],p:'作品が少しずつ完成していく様子を毎日配信しよう。完成の日は、リスナーさんと一緒にお祝いできるよ。'},
+15:{n:'旗ふりアルパカ',c:'みんなの声を聞きながら、先頭で目標に向かう。',d:'リスナーさんの意見を聞きながら、みんなで目指す目標を決めるのが得意。イベントでは、旗をふって枠をまとめるリーダーになれるよ。',s:['目標宣言つきの配信','リスナーさんと作戦を立てる枠','イベントの途中経過報告'],p:'最初の30日で「一緒に目指したい」と思ってくれる仲間を作ろう。イベントで大きな力になるよ。'},
+16:{n:'きらめきハクチョウ',c:'静かな魅力で惹きつけて、イベントで一気に花開く。',d:'落ち着いた雰囲気と、ここぞの本気でリスナーさんを魅了するタイプ。リクエストに応えながら、イベントで大きく輝けるよ。',s:['リクエストに応える歌・パフォーマンス配信','しっとりした雑談','イベントでの特別企画'],p:'ふだんは落ち着いた配信で常連さんを作って、イベントでは特別な企画で一気にスコアを伸ばそう。'}
+};
+const track=(name,p)=>{try{if(typeof gtag==='function')gtag('event',name,p||{})}catch(e){}};
+const pad=n=>String(n).padStart(2,'0');
+const bitsOf=n=>{const v=n-1;return [(v>>3)&1,(v>>2)&1,(v>>1)&1,v&1]};
+const $=id=>document.getElementById(id);
+let ans=[], qi=0;
+
+function show(v){['intro','quiz','result'].forEach(k=>$('v-'+k).hidden=(k!==v)); window.scrollTo({top:0});}
+
+$('grid').innerHTML=Object.keys(T).map(k=>`<button class="tcard" data-t="${k}"><img src="img/${pad(k)}.jpg" alt="" loading="lazy"><span class="n">TYPE ${pad(k)}</span><span class="nm">${T[k].n}</span></button>`).join('');
+$('grid').addEventListener('click',e=>{const b=e.target.closest('.tcard');if(b){track('type_view',{type_no:pad(b.dataset.t),from:'gallery'});result(+b.dataset.t,null)}});
+
+function renderQ(){
+  const q=Q[qi];
+  $('qnum').textContent=`${qi+1} / ${Q.length}`;
+  $('bar').style.width=((qi)/Q.length*100)+'%';
+  $('qtext').textContent=q.t;
+  $('back').disabled=qi===0;
+  $('opts').innerHTML=['A','B'].map((k,i)=>`<button class="opt${ans[qi]===i?' sel':''}" data-i="${i}"><span class="k">${k}</span><span>${q[k]}</span></button>`).join('');
+}
+$('opts').addEventListener('click',e=>{
+  const b=e.target.closest('.opt');if(!b)return;
+  ans[qi]=+b.dataset.i; b.classList.add('sel');
+  setTimeout(()=>{ if(qi<Q.length-1){qi++;renderQ()} else finish() },180);
+});
+$('back').addEventListener('click',()=>{if(qi>0){qi--;renderQ()}});
+$('start').addEventListener('click',()=>{track('quiz_start',{from:'top'});ans=[];qi=0;renderQ();show('quiz')});
+
+function finish(){
+  const score=[0,0,0,0];
+  Q.forEach((q,i)=>score[q.a]+=ans[i]);       // 各軸 0〜3
+  const b=score.map(s=>s>=2?1:0);
+  const n=b[0]*8+b[1]*4+b[2]*2+b[3]+1;
+  track('quiz_complete',{type_no:pad(n),type_name:T[n].n});
+  result(n,score);
+}
+
+function result(n,score){
+  const t=T[n], b=bitsOf(n), mine=!!score;
+  const sc=score||b.map(x=>x?3:0);
+  $('r-img').src=`img/${pad(n)}.jpg`; $('r-img').alt=t.n;
+  $('r-no').textContent='TYPE '+pad(n);
+  $('r-you').textContent=mine?'あなたは…':'タイプ紹介';
+  $('r-name').textContent=t.n; $('r-catch').textContent=t.c; $('r-desc').textContent=t.d;
+  $('r-styles').innerHTML=t.s.map(x=>`<li>${x}</li>`).join('');
+  $('r-plan').textContent=t.p;
+  $('r-meters').innerHTML=AXS.map((pair,i)=>{
+    const pct=Math.round(sc[i]/3*100), right=b[i]===1;
+    const w=right?pct:100-pct;
+    return `<div class="m"><span class="${right?'off':'on'}">${pair[0]}</span><span class="track"><i style="${right?'right':'left'}:0;width:${Math.max(w,50)}%"></i></span><span class="${right?'on':'off'}">${pair[1]}</span></div>`;
+  }).join('');
+  const pn=b[1]?n-4:n+4, pt=T[pn];
+  $('r-pimg').src=`img/${pad(pn)}.jpg`; $('r-pno').textContent='TYPE '+pad(pn); $('r-pname').textContent=pt.n;
+  $('r-partner').onclick=()=>result(pn,null);
+  const label=b.map((x,i)=>AX[i][x]).join('・');
+  $('r-copy').textContent=mine?`配信どうぶつ診断の結果は「TYPE ${pad(n)} ${t.n}」（${label}）でした！`:`配信どうぶつ診断の「TYPE ${pad(n)} ${t.n}」が気になりました！`;
+  $('cta').querySelector('h2').textContent=mine?'結果をLINEで送ってね':'気になったらLINEで聞いてね';
+  $('copy-msg').textContent='ボタンがひらかないときは、プロフィールのリンクから公式LINEを追加してね。';
+  if(LINE_URL){$('line').href=LINE_URL;$('line').hidden=false;$('line').onclick=()=>track('line_click',{type_no:pad(n),from_quiz:mine?'yes':'no'})}
+  try{history.replaceState(null,'','#t'+pad(n))}catch(e){}
+  show('result');
+}
+$('copy').addEventListener('click',()=>{
+  const txt=$('r-copy').textContent;
+  track('copy_result',{type_no:($('r-no').textContent||'').replace('TYPE ','')});
+  const ok=()=>{$('copy-msg').textContent='コピーしたよ！「公式LINEをひらく」から、トークに貼りつけて送ってね。'};
+  const fail=()=>{const r=document.createRange();r.selectNodeContents($('r-copy'));const s=getSelection();s.removeAllRanges();s.addRange(r);
+    $('copy-msg').textContent='文章を選択したよ。長押しでコピーしてね。'};
+  try{navigator.clipboard.writeText(txt).then(ok,fail)}catch(e){fail()}
+});
+$('again').addEventListener('click',()=>{track('quiz_start',{from:'retry'});ans=[];qi=0;renderQ();show('quiz')});
+$('all').addEventListener('click',()=>{show('intro');setTimeout(()=>$('grid').scrollIntoView({behavior:'smooth'}),50)});
+
+// #t05 のようなリンクで開いたら、そのタイプを表示
+const m=(location.hash||'').match(/^#t(\d{2})$/);
+if(m&&T[+m[1]]) result(+m[1],null);
+</script>
+
+</body>
+</html>
